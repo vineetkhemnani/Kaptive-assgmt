@@ -1,12 +1,12 @@
 import { DataGrid } from '@mui/x-data-grid'
 import data from './constants/data.js'
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 const columns = [
   {
     field: 'Overhead',
     headerName: 'CashFlow',
-    width: 240,
+    width: 200,
     sortable: false,
     disableColumnMenu: true,
     cellClassName: 'cashflow-cell',
@@ -14,74 +14,62 @@ const columns = [
   {
     field: 'Jan',
     headerName: 'January',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'Feb',
     headerName: 'February',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'March',
     headerName: 'March',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'April',
     headerName: 'April',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'May',
     headerName: 'May',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'June',
     headerName: 'June',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'July',
     headerName: 'July',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'August',
     headerName: 'August',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'September',
     headerName: 'September',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'October',
     headerName: 'October',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'November',
     headerName: 'November',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
   {
     field: 'December',
     headerName: 'December',
-    width: 150,
-    valueFormatter: ({ value }) => value.toFixed(2),
+    width: 140,
   },
 ]
 
@@ -90,22 +78,56 @@ const rows = data.Sheet1.map((item, index) => ({
   ...item,
 }))
 
-const FinancialSummaryTable = ({currency}) => {
+const FinancialSummaryTable = ({ currency, decimal }) => {
+  // Utility function to add valueFormatter to specific columns
+  const applyValueFormatter1 = (columns) => {
+    return columns.map((column) => {
+      if (column.field !== 'Overhead') {
+        return {
+          ...column,
+          valueFormatter: ({ value }) => (value / currency).toFixed(decimal),
+        }
+      }
+      return column
+    })
+  }
+
+  const formattedColumns = applyValueFormatter1(columns)
+
+  const handlePrint = () => {
+    window.print()
+  }
+
   return (
     <>
-    
-      <h3>CashFlow-1</h3>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
+        <h3>CashFlow-1</h3>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handlePrint}
+          sx={{ height: '40px' }}
+        >
+          Print
+        </Button>
+      </Box>
+
       <Box
         style={{ height: 650, width: 1000, overflowX: 'auto' }}
         sx={{
           width: '100%',
           '& .MuiDataGrid-main': {
-            fontSize: '12px',
+            fontSize: '10px',
           },
           '& .MuiDataGrid-columnHeaders': {
             backgroundColor: '#b9d5ff91',
             color: '#1a3e72',
-            fontSize: '14px',
+            fontSize: '12px',
           },
           '& .MuiDataGrid-columnHeaderTitle': {
             fontWeight: 'bold',
@@ -118,13 +140,14 @@ const FinancialSummaryTable = ({currency}) => {
       >
         <DataGrid
           rows={rows}
-          columns={columns}
+          columns={formattedColumns}
           initialState={{
             pagination: {
               paginationModel: { page: 0, pageSize: 10 },
             },
           }}
           pageSizeOptions={[5, 10]}
+          disableColumnMenu="true"
         />
       </Box>
     </>
