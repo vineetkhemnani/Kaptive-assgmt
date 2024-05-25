@@ -106,7 +106,7 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
           justifyContent: 'space-between',
         }}
       >
-        <h3>CashFlow-1</h3>
+        <h3>CashFlow Summary-1</h3>
         <Button
           variant="contained"
           color="primary"
