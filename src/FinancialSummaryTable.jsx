@@ -14,62 +14,62 @@ const columns = [
   {
     field: 'Jan',
     headerName: 'January',
-    width: 140,
+    width: 150,
   },
   {
     field: 'Feb',
     headerName: 'February',
-    width: 140,
+    width: 150,
   },
   {
     field: 'March',
     headerName: 'March',
-    width: 140,
+    width: 150,
   },
   {
     field: 'April',
     headerName: 'April',
-    width: 140,
+    width: 150,
   },
   {
     field: 'May',
     headerName: 'May',
-    width: 140,
+    width: 150,
   },
   {
     field: 'June',
     headerName: 'June',
-    width: 140,
+    width: 150,
   },
   {
     field: 'July',
     headerName: 'July',
-    width: 140,
+    width: 150,
   },
   {
     field: 'August',
     headerName: 'August',
-    width: 140,
+    width: 150,
   },
   {
     field: 'September',
     headerName: 'September',
-    width: 140,
+    width: 150,
   },
   {
     field: 'October',
     headerName: 'October',
-    width: 140,
+    width: 150,
   },
   {
     field: 'November',
     headerName: 'November',
-    width: 140,
+    width: 150,
   },
   {
     field: 'December',
     headerName: 'December',
-    width: 140,
+    width: 150,
   },
 ]
 
@@ -118,7 +118,7 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
       </Box>
 
       <Box
-        style={{ height: 650, width: 1000, overflowX: 'auto' }}
+        style={{ height: 650, width: 'auto', overflowX: 'auto' }}
         sx={{
           width: '100%',
           '& .MuiDataGrid-main': {
@@ -147,7 +147,7 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
             },
           }}
           pageSizeOptions={[5, 10]}
-          disableColumnMenu="true"
+          disableColumnMenu
         />
       </Box>
     </>
