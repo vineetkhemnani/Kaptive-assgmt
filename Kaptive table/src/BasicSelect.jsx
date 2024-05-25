@@ -41,7 +41,9 @@ export default function BasicSelect({
             <MenuItem value={2}>2</MenuItem>
           </Select>
         </FormControl>
-        <FormControl fullWidth sx={{ maxWidth: 120 }}>
+
+        {/* form control for currency exchange */}
+        <FormControl fullWidth sx={{ maxWidth: 160 }}>
           <InputLabel id="demo-simple-select-label">Currency</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -50,9 +52,10 @@ export default function BasicSelect({
             label="Currency"
             onChange={handleCurrencyChange}
           >
-            <MenuItem value={1}>Rupees</MenuItem>
-            <MenuItem value={100}>Euros</MenuItem>
-            <MenuItem value={83}>Dollars</MenuItem>
+            <MenuItem value={1}>INR (Rupees)</MenuItem>
+            <MenuItem value={100}>EURO (Euros)</MenuItem>
+            <MenuItem value={83}>USD (Dollars)</MenuItem>
+            <MenuItem value={105.78}>GBP (Pound)</MenuItem>
           </Select>
         </FormControl>
         {/* {console.log(currency)} */}
