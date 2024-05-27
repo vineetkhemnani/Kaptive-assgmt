@@ -13,12 +13,19 @@ const App = () => {
   return (
     <>
       <Box sx={{ display: 'flex' }}>
-        <Container sx={{ width: '15%', bgcolor: 'blue' }}>
+        <Box className="no-print" sx={{ width: '15%' }}>
           <LeftDrawer />
-        </Container>
+        </Box>
 
-        <Container sx={{ width: '85%' }}>
-          <Header/>
+        <Container
+          sx={{
+            width: '85%',
+            '@media print': {
+              width: '100%',
+            },
+          }}
+        >
+          <Header />
           <BarCharts />
           <BasicSelect
             currency={currency}

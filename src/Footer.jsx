@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Typography } from '@mui/material'
+import { Avatar, Box, Button, Container, Typography } from '@mui/material'
 
 const Footer = () => {
   return (
@@ -18,7 +18,7 @@ const Footer = () => {
       }}
     >
       <Typography variant="body1" sx={{ ml: '100px', fontSize: '0.875rem' }}>
-        © {new Date().getFullYear()} Your Company Name. All rights reserved.
+        © {new Date().getFullYear()} Copyright. All rights reserved by PLSE.
       </Typography>
       <Box sx={{ mr: '30px' }}>
         <Button sx={{ fontSize: '0.75rem' }}>Facebook</Button>
@@ -26,6 +26,8 @@ const Footer = () => {
         <Button sx={{ fontSize: '0.75rem' }}>Twitter</Button>
         <Button sx={{ fontSize: '0.75rem' }}>Google</Button>
       </Box>
+
+      
     </Box>
   )
 }

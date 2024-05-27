@@ -1,0 +1,19 @@
+.gradient-1 {
+  /* gradient for left drawer */
+  background: rgb(104, 107, 246);
+  background: linear-gradient(
+    90deg,
+    rgba(104, 107, 246, 1) 0%,
+    rgba(103, 107, 245, 1) 35%,
+    rgba(130, 137, 231, 1) 100%
+  );
+}
+
+/* print styles */
+@media print {
+  /* All your print styles go here */
+  .no-print {
+    display: none !important;
+  }
+}
+

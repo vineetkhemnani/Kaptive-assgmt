@@ -110,6 +110,7 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
         <Button
           variant="contained"
           color="primary"
+          className="no-print"
           onClick={handlePrint}
           sx={{ height: '40px' }}
         >
@@ -147,7 +148,7 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
             },
           }}
           pageSizeOptions={[5, 10]}
-          disableColumnMenu
+          disableColumnMenur
         />
       </Box>
     </>
