@@ -16,7 +16,7 @@ const chartSetting = {
     [`.${axisClasses.left} .${axisClasses.label}`]: {
       transform: 'translate(-10px, 0)',
     },
-    margin: 1,
+    margin: 2,
   },
 }
 
