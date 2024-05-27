@@ -17,8 +17,9 @@ import { MdOutlineLogout } from 'react-icons/md'
 
 const LeftDrawer = () => {
   return (
+    // box layout for left navigation drawer
     <Box
-      className="gradient-1 " //apply gradient
+      className="gradient-1 " //apply gradient from index.css
       sx={{
         width: '100%',
         mr: 2,
@@ -30,7 +31,7 @@ const LeftDrawer = () => {
       }}
     >
       <Box sx={{width:'85%'}}>
-
+      {/* logo */}
       <Typography
         color="white"
         sx={{
@@ -43,11 +44,14 @@ const LeftDrawer = () => {
         >
         PLSE
       </Typography>
+
+      {/* list of items with icons */}
       <List sx={{ width: '100%', ml: 2 }}>
         <ListItem
           disablePadding
           sx={{
             color: 'white',
+            // hover state for hovering over navigation menu items
             '&:hover': {
               background: '#7d80f3',
             },
@@ -118,6 +122,7 @@ const LeftDrawer = () => {
         </ListItem>
       </List>
       </Box>
+
       <Divider
         sx={{ mt: 10, bgcolor: 'white', width: '85%', alignSelf: 'center' }}
         />

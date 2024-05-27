@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { axisClasses } from '@mui/x-charts/ChartsAxis'
-import { Box, Button, Container } from '@mui/material'
+import { Box, Button, Container, Typography } from '@mui/material'
 import data from './constants/data'
 
 const chartSetting = {
@@ -20,11 +20,10 @@ const chartSetting = {
   },
 }
 
-// Format values by dividing by 10,000 and appending the unit
 const valueFormatter = (value) => `${value} rupees`
 
 // Number of items per page
-const itemsPerPage = 5
+const itemsPerPage = 4
 
 export default function BarCharts() {
   const [page, setPage] = useState(0)
@@ -43,6 +42,7 @@ export default function BarCharts() {
   }
 
   const paginatedData = getPaginatedData(data, page)
+  console.log(paginatedData.length)
 
   return (
     <Box>
@@ -79,13 +79,28 @@ export default function BarCharts() {
           justifyContent: 'space-between',
           mt: 2,
           alignItems: 'center',
+          height: 2,
         }}
       >
-        <Button onClick={handlePrevPage} disabled={page === 0}>
+        <Button
+          className="no-print"
+          onClick={handlePrevPage}
+          disabled={page === 0}
+        >
           Previous
         </Button>
-        <Box>Page {page + 1}</Box>
+        <Typography
+          sx={{
+            '@media print': {
+              width: '100%',
+              textAlign:'center'
+            },
+          }}
+        >
+          Page {page + 1}
+        </Typography>
         <Button
+          className="no-print"
           onClick={handleNextPage}
           disabled={paginatedData.length < itemsPerPage}
         >

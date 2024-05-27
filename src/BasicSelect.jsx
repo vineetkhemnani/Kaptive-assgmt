@@ -10,15 +10,20 @@ export default function BasicSelect({
   decimal,
   setDecimal,
 }) {
-  const handleCurrencyChange = (event) => {
-    setCurrency(event.target.value)
+
+  // currency change handler
+  const handleCurrencyChange = (e) => {
+    setCurrency(e.target.value)
   }
-  const handleDecimalChange = (event) => {
-    setDecimal(event.target.value)
+
+  // decimal change handler
+  const handleDecimalChange = (e) => {
+    setDecimal(e.target.value)
   }
 
   return (
     <>
+    {/* box layout for decimal and currency */}
       <Box
         sx={{
           display: 'flex',
@@ -27,6 +32,7 @@ export default function BasicSelect({
           my: 2,
         }}
       >
+        {/* decimal box */}
         <FormControl fullWidth sx={{ maxWidth: 120, mx: 2 }}>
           <InputLabel id="demo-simple-select-label">Decimal</InputLabel>
           <Select

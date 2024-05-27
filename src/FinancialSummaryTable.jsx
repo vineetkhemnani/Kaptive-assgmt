@@ -148,7 +148,7 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
             },
           }}
           pageSizeOptions={[5, 10]}
-          disableColumnMenur
+          disableColumnMenu
         />
       </Box>
     </>
