@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { axisClasses } from '@mui/x-charts/ChartsAxis'
 
@@ -61,7 +60,7 @@ const dataset = [
     year: '2022-23',
   },
 ]
-
+// format values to a certain type or format
 const valueFormatter = (value) => `${value} 000 rupees`
 
 export default function BarCharts() {
@@ -74,6 +73,7 @@ export default function BarCharts() {
         { dataKey: 'cogs', label: 'COGS', valueFormatter },
         { dataKey: 'gross', label: 'Gross Profit', valueFormatter },
       ]}
+      // adjustments for legend (default is at top)
       slotProps={{
         legend: {
           direction: 'row',
