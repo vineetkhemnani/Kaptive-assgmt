@@ -4,7 +4,6 @@ import { Avatar, Box, Button, Container, Typography } from '@mui/material'
 const Footer = () => {
   return (
     <Box
-      component="footer"
       sx={{
         width: '100%',
         bgcolor: 'background.paper', // Use background color to differentiate
@@ -15,6 +14,9 @@ const Footer = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center', // Vertically center the content
+        '@media print':{
+          display:'none',
+        }
       }}
     >
       <Typography variant="body1" sx={{ ml: '100px', fontSize: '0.875rem' }}>
