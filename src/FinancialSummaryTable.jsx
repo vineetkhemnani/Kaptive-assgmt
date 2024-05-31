@@ -1,4 +1,4 @@
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import data from './constants/data.js'
 import { Box, Button } from '@mui/material'
 
@@ -10,6 +10,7 @@ const columns = [
     sortable: false,
     disableColumnMenu: true,
     cellClassName: 'cashflow-cell',
+    headerClassName: 'cashflow',
   },
   {
     field: 'Jan',
@@ -119,7 +120,7 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
       </Box>
 
       <Box
-        style={{ height: 650, width: 'auto', overflowX: 'auto' }}
+        style={{ height: 650, width: 'auto' }}
         sx={{
           width: '100%',
           '& .MuiDataGrid-main': {
@@ -133,10 +134,22 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
           '& .MuiDataGrid-columnHeaderTitle': {
             fontWeight: 'bold',
           },
-          '& .cashflow-cell': {
-            color: 'black',
-            fontWeight: '600',
-          },
+          // '& .cashflow-cell': {
+          //   color: 'black',
+          //   fontWeight: '600',
+          //   position: 'sticky',
+          //   left: 0,
+          //   background: 'white',
+          //   zIndex: 1,
+          //   boxShadow: '2px 0 5px -2px rgba(0,0,0,0.2)', // Optional shadow for better visibility
+          // },
+          // '& .cashflow': {
+          //   position: 'sticky',
+          //   left: 0,
+          //   zIndex: 1, // Ensure it is above the cells
+          //   background: '#b9d5ff91',
+          //   boxShadow: '2px 0 5px -2px rgba(0,0,0,0.2)', // Optional shadow for better visibility
+          // },
         }}
       >
         <DataGrid
@@ -149,6 +162,19 @@ const FinancialSummaryTable = ({ currency, decimal }) => {
           }}
           pageSizeOptions={[5, 10]}
           disableColumnMenu
+          slots={{ toolbar: GridToolbar }}
+          slotProps={{
+            toolbar: {
+              printOptions: {
+                allColumns: true, // Ensure all columns are included in the print
+              },
+            },
+          }}
+          sx={{
+            '@media print': {
+              '.MuiDataGrid-main': { margin: '5px', fontSize: '10px' },
+            },
+          }}
         />
       </Box>
     </>

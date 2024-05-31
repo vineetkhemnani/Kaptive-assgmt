@@ -6,6 +6,7 @@ import BarCharts from './BarCharts'
 import LeftDrawer from './LeftDrawer'
 import { Box, Container } from '@mui/material'
 import Header from './Header'
+import FinancialSummary from './FinancialSummary'
 
 const App = () => {
   // global states to manage currency and decimals
@@ -38,7 +39,11 @@ const App = () => {
             setDecimal={setDecimal}
           />
           {/* main financial summary table */}
-          <FinancialSummaryTable currency={currency} decimal={decimal} />
+          {/* <FinancialSummaryTable currency={currency} decimal={decimal} /> */}
+          
+          <Box style={{ height: 650, width: 'auto' }}>
+            <FinancialSummary decimal={decimal} currency={currency}/>
+          </Box>
         </Container>
       </Box>
       <Footer />
